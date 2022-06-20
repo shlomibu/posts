@@ -8,20 +8,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-const postTascs_1 = require("../BL/postTascs");
-const router = (0, express_1.Router)();
-function setSuccess(req, res, next) {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const result = yield (0, postTascs_1.get)();
-            res.send(result);
-        }
-        catch (error) {
-            res.send(error.message || error);
-        }
-    });
-}
-router.get("/", setSuccess);
-exports.default = router;
+exports.getAll = void 0;
+const postModel_1 = __importDefault(require("../models/postModel"));
+const getAll = () => __awaiter(void 0, void 0, void 0, function* () { return yield postModel_1.default.find(); });
+exports.getAll = getAll;

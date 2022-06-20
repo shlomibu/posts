@@ -8,7 +8,7 @@ const PORT: number = Number(process.env.PORT),
 connectDB()
 app.use(express.json())
 
-app.use("/",router)
+app.use("/post",router)
 
 
 app.listen(PORT,()=>console.log(`server is running. PORT:${PORT}`)

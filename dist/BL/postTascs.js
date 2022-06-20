@@ -9,19 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-const postTascs_1 = require("../BL/postTascs");
-const router = (0, express_1.Router)();
-function setSuccess(req, res, next) {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const result = yield (0, postTascs_1.get)();
-            res.send(result);
-        }
-        catch (error) {
-            res.send(error.message || error);
-        }
-    });
-}
-router.get("/", setSuccess);
-exports.default = router;
+exports.get = void 0;
+const postController_1 = require("../DL/controllers/postController");
+const get = () => __awaiter(void 0, void 0, void 0, function* () { return yield (0, postController_1.getAll)(); });
+exports.get = get;
